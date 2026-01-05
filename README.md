@@ -4,7 +4,7 @@ A CLI tool for personal stock watchlist monitoring with technical indicators and
 
 Built for quick daily triage: see which stocks need attention, understand why, then drill down.
 
-![Market Pulse Screenshot](https://via.placeholder.com/800x400?text=pulse+scan+screenshot)
+![Market Pulse Screenshot](screenshot.png)
 
 ## Features
 
