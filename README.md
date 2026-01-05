@@ -1,118 +1,114 @@
-# Market Pulse 📈
+# <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Chart%20Increasing.png" alt="Chart" width="32" /> Market Pulse
 
-A CLI tool for personal stock watchlist monitoring with technical indicators and news tracking.
+[![Python](https://img.shields.io/badge/Python-3.10+-3776ab?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
+[![Stars](https://img.shields.io/github/stars/kunalnano/market-pulse?style=for-the-badge&color=yellow)](https://github.com/kunalnano/market-pulse/stargazers)
 
-Built for quick daily triage: see which stocks need attention, understand why, then drill down.
+> **Your personal stock market radar** — Technical indicators, news tracking, and signal scoring in one CLI.
 
-![Market Pulse Screenshot](screenshot.png)
+<p align="center">
+  <img src="screenshot.png" alt="Market Pulse Demo" width="700">
+</p>
 
-## Features
+---
 
-- **Technical Indicators**: RSI, MACD, Bollinger Bands, Moving Averages (50/200), Golden/Death Cross detection
-- **Signal Scoring**: Green/Yellow/Red signals with overall BULLISH/NEUTRAL/BEARISH verdict
-- **10-Day Sparklines**: Visual trend at a glance
-- **News Monitoring**: Track keywords across Hacker News, TechCrunch, The Verge, Ars Technica
-- **Browser Integration**: Open TradingView/Yahoo/Google Finance charts directly
-- **Built-in Education**: `pulse legend` explains what each indicator means
+## ✨ Features
 
-## Installation
+| Feature | Description |
+|---------|-------------|
+| 📊 **Technical Indicators** | RSI, MACD, Bollinger Bands, Moving Averages (50/200-day) |
+| 🔀 **Cross Detection** | Golden Cross / Death Cross alerts |
+| 📈 **Sparklines** | 10-day visual trend at a glance |
+| 🎯 **Signal Scoring** | Green/Yellow/Red with BULLISH/NEUTRAL/BEARISH verdict |
+| 📰 **News Tracking** | Keywords across HN, TechCrunch, The Verge, Ars Technica |
+| 🌐 **Browser Integration** | Open TradingView/Yahoo/Google Finance directly |
+| 📚 **Built-in Education** | `pulse legend` explains every indicator |
+
+---
+
+## 🚀 Quick Start
 
 ```bash
-# Clone the repo
-git clone https://github.com/YOUR_USERNAME/market-pulse.git
+# Clone
+git clone https://github.com/kunalnano/market-pulse.git
 cd market-pulse
 
-# Create virtual environment (requires Python 3.10+)
+# Setup (Python 3.10+ required)
 python3 -m venv venv
 source venv/bin/activate
-
-# Install dependencies
 pip install -r requirements.txt
 
-# Optional: Add alias to your shell
-echo 'alias pulse="/path/to/market-pulse/venv/bin/python /path/to/market-pulse/pulse.py"' >> ~/.zshrc
+# Run
+python pulse.py
+```
+
+**Pro tip:** Add an alias for quick access:
+```bash
+echo 'alias pulse="$(pwd)/venv/bin/python $(pwd)/pulse.py"' >> ~/.zshrc
 source ~/.zshrc
 ```
 
-## Usage
+---
+
+## 📖 Usage
 
 ```bash
-pulse                              # Run full scan (default)
-pulse scan                         # Same as above - scorecard for all stocks
-pulse stocks                       # Detailed analysis with all metrics
-pulse news                         # Recent news matching your keywords
-pulse legend                       # Explain what each indicator means
-pulse open AAPL                    # Open TradingView chart in browser
-pulse open MSFT --source yahoo     # Open Yahoo Finance instead
-pulse config --show                # View current configuration
-pulse config --add-stock NVDA      # Add stock to watchlist
-pulse config --remove-stock NVDA   # Remove stock from watchlist
-pulse config --add-keyword "Tesla" # Add keyword to track
+pulse                              # Full scan (default)
+pulse stocks                       # Detailed analysis
+pulse news                         # News matching keywords
+pulse legend                       # Indicator explanations
+pulse open AAPL                    # Open chart in browser
+pulse open MSFT --source yahoo     # Yahoo Finance
+pulse config --show                # View settings
+pulse config --add-stock NVDA      # Add to watchlist
+pulse config --remove-stock NVDA   # Remove from watchlist
+pulse config --add-keyword "Tesla" # Track keyword
 ```
 
-## Example Output
+---
 
-```
-╭──────────────────────────────────────────────────────────────────────────────╮
-│ AAPL - Apple Inc.  |  $243.85  |  ● NEUTRAL  (3 green / 3 red)               │
-│ 10-day: ▄▇▁▄█▆▇▆▃▁  → -0.4%                                                  │
-╰──────────────────────────────────────────────────────────────────────────────╯
-                                                                         
-  Indicator           Value   Signal     Meaning                         
- ─────────────────────────────────────────────────────────────────────── 
-  RSI                  31.1   🟡         Neutral zone                    
-  MACD              Bearish   🔴         Momentum falling                
-  MA Cross           Golden   🟢         50-day above 200-day            
-  vs SMA200           Above   🟢         In long-term uptrend            
-  52w Range             85%   🔴         Near 52-week high               
-  Bollinger             18%   🟢         Near lower band                 
-  P/E Ratio            36.4   🔴         Expensive                       
-  Volume           0.9x avg   🟡         Normal volume                   
-```
+## 🎨 Signal Reference
 
-## Indicators Explained
-
-| Indicator | What It Measures | 🟢 Green (Bullish) | 🔴 Red (Bearish) |
-|-----------|------------------|-------------------|-----------------|
-| **RSI** | Momentum exhaustion | < 30 (oversold) | > 70 (overbought) |
-| **MACD** | Trend momentum | Bullish crossover | Bearish crossover |
-| **MA Cross** | 50-day vs 200-day | Golden Cross | Death Cross |
-| **vs SMA200** | Long-term trend | Price above | Price below |
-| **52w Range** | Position in yearly range | < 25% (near low) | > 85% (near high) |
-| **Bollinger** | Volatility position | < 20% (oversold) | > 80% (overbought) |
-| **P/E Ratio** | Valuation | < 15 (cheap) | > 35 (expensive) |
+| Indicator | 🟢 Bullish | 🔴 Bearish |
+|-----------|-----------|-----------|
+| **RSI** | < 30 (oversold) | > 70 (overbought) |
+| **MACD** | Bullish crossover | Bearish crossover |
+| **MA Cross** | Golden (50 > 200) | Death (50 < 200) |
+| **vs SMA200** | Price above | Price below |
+| **52w Range** | < 25% (near low) | > 85% (near high) |
+| **Bollinger** | < 20% (oversold) | > 80% (overbought) |
+| **P/E Ratio** | < 15 (cheap) | > 35 (expensive) |
 
 Run `pulse legend` for detailed explanations with analogies.
 
-## Configuration
+---
 
-On first run, `config.json` is created with defaults:
+## ⚙️ Configuration
 
-- **Stocks**: AAPL, GOOGL (customize with `--add-stock`)
-- **Keywords**: Google, Apple, AI, OpenAI, Claude, etc.
-- **News feeds**: HN, TechCrunch, The Verge, Ars Technica
+First run creates `config.json` with defaults:
+- **Stocks:** AAPL, GOOGL
+- **Keywords:** Google, Apple, AI, OpenAI, Claude, Anthropic, Gemini
+- **Feeds:** Hacker News, TechCrunch, The Verge, Ars Technica
 
-The config file is gitignored since it contains your personal watchlist.
+Config is gitignored (contains your personal watchlist).
 
-## Automation (Optional)
+---
 
-Run hourly via cron:
+## 🔧 Dependencies
 
-```bash
-0 * * * * /path/to/venv/bin/python /path/to/pulse.py scan >> /tmp/pulse.log 2>&1
-```
+- `yfinance` — Stock data & fundamentals
+- `feedparser` — RSS parsing
+- `rich` — Beautiful terminal UI
+- `pandas` / `numpy` — Data crunching
 
-## Dependencies
+---
 
-- `yfinance` - Stock data and fundamentals
-- `feedparser` - RSS feed parsing
-- `rich` - Terminal UI (tables, panels, colors)
-- `pandas` / `numpy` - Data analysis
+## 📄 License
 
-## License
+MIT — Do whatever you want with it.
 
-MIT - Do whatever you want with it.
+---
 
-## Credits
-
-Built in one conversation with Claude (Opus). The kind of tool that used to take a weekend now takes an hour.
+<p align="center">
+  <sub>Built in one conversation with Claude Opus. The kind of tool that used to take a weekend now takes an hour.</sub>
+</p>
